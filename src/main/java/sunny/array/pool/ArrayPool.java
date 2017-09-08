@@ -5,5 +5,6 @@ package sunny.array.pool;
  */
 public interface ArrayPool<TARRAY> {
     public TARRAY get(int size);
+    public TARRAY extend(TARRAY array, int newSize);
     public void recycle(TARRAY array);
 }

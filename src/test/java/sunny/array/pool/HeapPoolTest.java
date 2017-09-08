@@ -1,6 +1,6 @@
 package sunny.array.pool;
 
-import sunny.array.pool.heap.AHeapIntArrayPool;
+import sunny.array.pool.heap.HeapIntArrayPool;
 import sunny.array.pool.a.HeapStats;
 import sunny.array.pool.a.WeakDeamonRunner;
 
@@ -16,12 +16,12 @@ public class HeapPoolTest {
         new HeapPoolTest().test1();
     }
 
-    static AHeapIntArrayPool pool;
+    static HeapIntArrayPool pool;
     //@BeforeClass
     public static void init()
     {
         WeakDeamonRunner runner = new WeakDeamonRunner(10_000, 30_000);
-        pool = new AHeapIntArrayPool(32, 1024 * 1024, runner);
+        pool = new HeapIntArrayPool(32, 1024 * 1024, runner);
 
         runner.start();
     }

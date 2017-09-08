@@ -94,11 +94,19 @@ public class Element<T> {
     public void release()
     {
         lock.writeLock().lock();
+
+        releaseObject();
+
         obj = null;
         if(ref!=null)
             ref.clear();
         HeapStats.decUsed(heapSize);
         released = true;
         lock.writeLock().unlock();
+    }
+
+    protected void releaseObject()
+    {
+
     }
 }

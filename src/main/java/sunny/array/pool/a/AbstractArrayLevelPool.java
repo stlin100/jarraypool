@@ -8,7 +8,7 @@ import sunny.array.pool.ArrayLevelPool;
 public abstract class AbstractArrayLevelPool<TARRAY> implements ArrayLevelPool<TARRAY> {
 
     protected final int levelSize;
-    private int heapBytes;
+    protected int heapBytes;
 
     LinkList<TARRAY> linkList;
 
