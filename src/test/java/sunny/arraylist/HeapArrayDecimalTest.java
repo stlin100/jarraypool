@@ -64,19 +64,19 @@ public class HeapArrayDecimalTest {
         testDecimalArrayN(32);
     }
 
-    @Test
+    //@Test
     public void testDecimalArray512()
     {
         testDecimalArrayN(512);
     }
 
-    @Test
+    //@Test
     public void testDecimalArray1024()
     {
         testDecimalArrayN(1024);
     }
 
-    @Test
+    //@Test
     public void testDecimalArray2048()
     {
         testDecimalArrayN(2048);
@@ -106,19 +106,19 @@ public class HeapArrayDecimalTest {
         testDecimalArrayN(32);
     }
 
-    @Test
+    //@Test
     public void testDecimalArrayList512()
     {
         testDecimalArrayN(512);
     }
 
-    @Test
+    //@Test
     public void testDecimalArrayList1024()
     {
         testDecimalArrayN(1024);
     }
 
-    @Test
+    //@Test
     public void testDecimalArrayList2048()
     {
         testDecimalArrayN(2048);

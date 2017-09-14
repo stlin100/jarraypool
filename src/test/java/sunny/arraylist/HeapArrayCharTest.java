@@ -41,7 +41,7 @@ public class HeapArrayCharTest {
         System.out.println("Used: " + HeapStats.getUsed());
     }
 
-    @Test
+    //@Test
     public void testCharArray16()
     {
         testCharArrayN(16);
@@ -65,7 +65,7 @@ public class HeapArrayCharTest {
         testCharArrayN(1024);
     }
 
-    @Test
+    //@Test
     public void testCharArray2048()
     {
         testCharArrayN(2048);
@@ -84,7 +84,7 @@ public class HeapArrayCharTest {
         System.out.println("Used: " + HeapStats.getUsed());
     }
 
-    @Test
+    //@Test
     public void testCharArrayList16()
     {
         testCharArrayN(16);
@@ -108,7 +108,7 @@ public class HeapArrayCharTest {
         testCharArrayN(1024);
     }
 
-    @Test
+    //@Test
     public void testCharArrayList2048()
     {
         testCharArrayN(2048);

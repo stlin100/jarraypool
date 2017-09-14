@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/junsafe.iml" filepath="$PROJECT_DIR$/junsafe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jarraypool.iml" filepath="$PROJECT_DIR$/jarraypool.iml" />
     </modules>
   </component>
 </project>

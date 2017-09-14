@@ -41,7 +41,7 @@ public class HeapArrayBooleanTest {
         System.out.println("Used: " + HeapStats.getUsed());
     }
 
-    @Test
+    //@Test
     public void testBooleanArray16()
     {
         testBooleanArrayN(16);
@@ -65,7 +65,7 @@ public class HeapArrayBooleanTest {
         testBooleanArrayN(1024);
     }
 
-    @Test
+    //@Test
     public void testBooleanArray2048()
     {
         testBooleanArrayN(2048);
@@ -84,7 +84,7 @@ public class HeapArrayBooleanTest {
         System.out.println("Used: " + HeapStats.getUsed());
     }
 
-    @Test
+    //@Test
     public void testBooleanArrayList16()
     {
         testBooleanArrayN(16);
@@ -108,7 +108,7 @@ public class HeapArrayBooleanTest {
         testBooleanArrayN(1024);
     }
 
-    @Test
+    //@Test
     public void testBooleanArrayList2048()
     {
         testBooleanArrayN(2048);

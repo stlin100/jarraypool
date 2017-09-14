@@ -1,8 +1,6 @@
 package sunny.unsafe;
 
 import sun.misc.Unsafe;
-import sunny.memory.OffHeapMemory;
-import sunny.memory.UnsafeOffHeapMemory;
 
 import java.io.Closeable;
 import java.io.IOException;

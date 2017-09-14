@@ -3,7 +3,6 @@ package sunny.arraypool.unsafe;
 import sunny.arraypool.ArrayPool;
 import sunny.arraypool.ArrayPoolFactory;
 import sunny.arraypool.core.WeakDeamonRunner;
-import sunny.array.pool.heap.*;
 import sunny.unsafe.UnsafeMemory;
 
 /**
