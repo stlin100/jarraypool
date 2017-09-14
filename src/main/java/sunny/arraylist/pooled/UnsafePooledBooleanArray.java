@@ -1,8 +1,7 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.unsafe.UnsafeArrayPool;
+import sunny.arraypool.unsafe.UnsafeArrayPool;
 import sunny.arraylist.BooleanArray;
-import sunny.arraylist.IntArray;
 
 /**
  * Created by lzx on 17/9/8.
@@ -22,6 +21,7 @@ public class UnsafePooledBooleanArray extends UnsafePooledArray implements Boole
 
     @Override
     public void set(int index, boolean value) {
+        ensureCapacity(index);
         if(size<index+1)
         {
             size = index + 1;

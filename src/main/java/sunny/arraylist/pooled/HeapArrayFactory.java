@@ -1,9 +1,8 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPoolFactory;
-import sunny.array.pool.a.WeakDeamonRunner;
-import sunny.array.pool.heap.*;
+import sunny.arraypool.ArrayPoolFactory;
 import sunny.arraylist.*;
+import sunny.arraypool.heap.*;
 
 /**
  * Created by lzx on 17/9/8.
@@ -92,13 +91,4 @@ public class HeapArrayFactory extends ArrayFactory{
         return new HeapPooledCharArrayList(charArrayPool, capacity);
     }
 
-    @Override
-    public DecimalArray createDecimalArray(int capacity) {
-        return new PooledDecimalArray(this, capacity);
-    }
-
-    @Override
-    public DecimalArrayList createDecimalArrayList(int capacity) {
-        return new PooledDecimalArrayList(this, capacity);
-    }
 }

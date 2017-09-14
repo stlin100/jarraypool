@@ -9,6 +9,9 @@ import sunny.arraylist.ShortArray;
  */
 public class Str implements Comparable<Str>{
 
+    public final static String EMPTYSTRING = new String("");
+    public final static Str EMPTYSTR = new Str(null, 0);
+
     private int length;
     private CharArray array;
 
@@ -69,6 +72,9 @@ public class Str implements Comparable<Str>{
 
     public String toString()
     {
+        if(length==0)
+            return EMPTYSTRING;
+
         char[] chars = new char[length];
         for(int i=0;i<length;i++)
         {

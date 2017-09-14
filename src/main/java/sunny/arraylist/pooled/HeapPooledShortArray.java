@@ -1,7 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
-import sunny.arraylist.IntArray;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.ShortArray;
 
 /**
@@ -22,6 +21,7 @@ public class HeapPooledShortArray extends PooledArray<short[]> implements ShortA
 
     @Override
     public void set(int index, short value) {
+        ensureCapacity(index);
         if(size<index+1)
         {
             size = index + 1;

@@ -1,6 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.ArrayList;
 import sunny.arraylist.LongArrayList;
 

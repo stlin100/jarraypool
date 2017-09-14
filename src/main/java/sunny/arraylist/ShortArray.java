@@ -8,4 +8,9 @@ public interface ShortArray extends Array{
     void set(int index, short value);
     short get(int index);
 
+    default void set(int index, int value)
+    {
+        set(index, (short)value);
+    }
+
 }

@@ -1,6 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.Array;
 
 /**
@@ -33,5 +33,7 @@ public abstract class PooledArray<T> implements Array {
         pool.recycle(array);
     }
 
+    public void ensureCapacity(int index) {
 
+    }
 }

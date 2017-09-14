@@ -1,7 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
-import sunny.array.pool.unsafe.UnsafeArrayPool;
+import sunny.arraypool.unsafe.UnsafeArrayPool;
 import sunny.arraylist.IntArray;
 
 /**
@@ -22,6 +21,7 @@ public class UnsafePooledIntArray extends UnsafePooledArray implements IntArray{
 
     @Override
     public void set(int index, int value) {
+        ensureCapacity(index);
         if(size<index+1)
         {
             size = index + 1;

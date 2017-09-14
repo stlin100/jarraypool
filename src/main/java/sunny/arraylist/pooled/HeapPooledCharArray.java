@@ -1,8 +1,7 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.CharArray;
-import sunny.arraylist.IntArray;
 
 /**
  * Created by lzx on 17/9/8.
@@ -22,6 +21,7 @@ public class HeapPooledCharArray extends PooledArray<char[]> implements CharArra
 
     @Override
     public void set(int index, char value) {
+        ensureCapacity(index);
         if(size<index+1)
         {
             size = index + 1;

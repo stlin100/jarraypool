@@ -1,8 +1,7 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.BooleanArray;
-import sunny.arraylist.IntArray;
 
 /**
  * Created by lzx on 17/9/8.
@@ -22,6 +21,8 @@ public class HeapPooledBooleanArray extends PooledArray<boolean[]> implements Bo
 
     @Override
     public void set(int index, boolean value) {
+        ensureCapacity(index);
+
         if(size<index+1)
         {
             size = index + 1;

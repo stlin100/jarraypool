@@ -1,7 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
-import sunny.arraylist.IntArray;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.LongArray;
 
 /**
@@ -22,6 +21,7 @@ public class HeapPooledLongArray extends PooledArray<long[]> implements LongArra
 
     @Override
     public void set(int index, long value) {
+        ensureCapacity(index);
         if(size<index+1)
         {
             size = index + 1;

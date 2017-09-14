@@ -1,8 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
-import sunny.array.pool.unsafe.UnsafeArrayPool;
-import sunny.array.pool.unsafe.UnsafeIntArrayPool;
+import sunny.arraypool.unsafe.UnsafeIntArrayPool;
 import sunny.arraylist.ArrayList;
 import sunny.arraylist.IntArrayList;
 

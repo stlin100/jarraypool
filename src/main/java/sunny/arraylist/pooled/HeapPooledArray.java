@@ -1,7 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
-import sunny.array.pool.heap.HeapArrayPool;
+import sunny.arraypool.heap.HeapArrayPool;
 
 /**
  * Created by lzx on 17/9/8.

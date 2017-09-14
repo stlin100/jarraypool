@@ -1,6 +1,6 @@
 package sunny.arraylist.pooled;
 
-import sunny.array.pool.ArrayPool;
+import sunny.arraypool.ArrayPool;
 import sunny.arraylist.IntArray;
 
 /**
@@ -21,6 +21,7 @@ public class HeapPooledIntArray extends PooledArray<int[]> implements IntArray{
 
     @Override
     public void set(int index, int value) {
+        ensureCapacity(index);
         if(size<index+1)
         {
             size = index + 1;
