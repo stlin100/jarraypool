@@ -27,12 +27,19 @@ public class UnpooledCharArray implements CharArray {
     @Override
     public final void set(int index, char value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }
         elements[index] = value;
 
+    }
+
+    @Override
+    public void append(char value) {
+        ensureCapacity(size);
+        elements[size] = value;
+        size++;
     }
 
     protected void ensureCapacity(int index) {

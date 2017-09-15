@@ -15,9 +15,12 @@ public class UnpooledShortArrayList extends UnpooledShortArray implements ShortA
 
 
     public final void ensureCapacity(int index) {
-        if(index>capacity - 1)
+        if(index>=capacity)
         {
-            capacity = capacity + (capacity>>1);
+            do
+            {
+                capacity = capacity<<1;
+            }while(index>=capacity);
             elements = Arrays.copyOf(elements, capacity);
 
         }

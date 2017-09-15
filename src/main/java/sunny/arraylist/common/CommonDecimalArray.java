@@ -38,8 +38,29 @@ public class CommonDecimalArray implements DecimalArray {
     }
 
     @Override
+    public void append(BigDecimal value) {
+        decimalCursor.setOffset(size * 2);
+        decimalCursor.setValue(value);
+        size++;
+    }
+
+    @Override
+    public void append(int value) {
+        decimalCursor.setOffset(size * 2);
+        decimalCursor.setValue(value);
+        size++;
+    }
+
+    @Override
+    public void append(long value) {
+        decimalCursor.setOffset(size * 2);
+        decimalCursor.setValue(value);
+        size++;
+    }
+
+    @Override
     public void set(int index, BigDecimal value) {
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }
@@ -50,7 +71,7 @@ public class CommonDecimalArray implements DecimalArray {
 
     @Override
     public void set(int index, int value) {
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }
@@ -60,7 +81,7 @@ public class CommonDecimalArray implements DecimalArray {
 
     @Override
     public void set(int index, long value) {
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

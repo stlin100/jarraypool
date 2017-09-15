@@ -15,9 +15,12 @@ public class UnsafePooledCharArrayList extends UnsafePooledCharArray implements 
 
     @Override
     public void ensureCapacity(int index) {
-        if(index>capacity - 1)
+        if(index>=capacity)
         {
-            capacity = capacity << 1;
+            do
+            {
+                capacity = capacity<<1;
+            }while(index>=capacity);
             array = pool.extend(array, capacity);
         }
     }

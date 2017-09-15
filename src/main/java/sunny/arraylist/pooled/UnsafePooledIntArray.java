@@ -22,11 +22,18 @@ public class UnsafePooledIntArray extends UnsafePooledArray implements IntArray{
     @Override
     public void set(int index, int value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }
         array.putInt(index * Integer.BYTES, value);
+    }
+
+    @Override
+    public void append(int value) {
+        ensureCapacity(size);
+        array.putInt(size * Integer.BYTES, value);
+        size++;
     }
 
     @Override

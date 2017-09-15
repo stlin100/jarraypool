@@ -20,9 +20,16 @@ public class UnsafePooledShortArray extends UnsafePooledArray implements ShortAr
     }
 
     @Override
+    public void append(short value) {
+        ensureCapacity(size);
+        array.putShort(size * Short.BYTES, value);
+        size++;
+    }
+
+    @Override
     public void set(int index, short value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

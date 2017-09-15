@@ -18,9 +18,12 @@ public class CommonStrArrayList extends CommonStrArray implements StrArrayList{
      */
     @Override
     public void ensureCapacity(int index) {
-        if(index>capacity - 1)
+        if(index>=capacity)
         {
-            capacity = capacity << 1;
+            do
+            {
+                capacity = capacity<<1;
+            }while(index>=capacity);
 
             CharArray[] newCharArrays = new CharArray[capacity];
             System.arraycopy(charArrays, 0, newCharArrays, 0, charArrays.length);

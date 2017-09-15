@@ -20,9 +20,16 @@ public class HeapPooledCharArray extends PooledArray<char[]> implements CharArra
     }
 
     @Override
+    public void append(char value) {
+        ensureCapacity(size);
+        array[size] = value;
+        size++;
+    }
+
+    @Override
     public void set(int index, char value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

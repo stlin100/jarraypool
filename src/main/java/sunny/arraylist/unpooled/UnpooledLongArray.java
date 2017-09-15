@@ -25,9 +25,16 @@ public class UnpooledLongArray implements LongArray {
     }
 
     @Override
+    public void append(long value) {
+        ensureCapacity(size);
+        elements[size] = value;
+        size++;
+    }
+
+    @Override
     public final void set(int index, long value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

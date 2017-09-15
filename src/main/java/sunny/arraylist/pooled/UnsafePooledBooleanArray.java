@@ -19,10 +19,18 @@ public class UnsafePooledBooleanArray extends UnsafePooledArray implements Boole
         return size;
     }
 
+
+    @Override
+    public void append(boolean value) {
+        ensureCapacity(size);
+        array.putByte(size * Byte.BYTES, (byte)(value?1:0));
+        size++;
+    }
+
     @Override
     public void set(int index, boolean value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

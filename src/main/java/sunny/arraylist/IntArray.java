@@ -5,6 +5,7 @@ package sunny.arraylist;
  */
 public interface IntArray extends Array{
 
+    void append(int value);
     void set(int index, int value);
     int get(int index);
 

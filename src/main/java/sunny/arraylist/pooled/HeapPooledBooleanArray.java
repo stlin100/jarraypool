@@ -20,10 +20,17 @@ public class HeapPooledBooleanArray extends PooledArray<boolean[]> implements Bo
     }
 
     @Override
+    public void append(boolean value) {
+        ensureCapacity(size);
+        array[size] = value;
+        size++;
+    }
+
+    @Override
     public void set(int index, boolean value) {
         ensureCapacity(index);
 
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

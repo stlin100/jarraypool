@@ -22,11 +22,18 @@ public class UnsafePooledCharArray extends UnsafePooledArray implements CharArra
     @Override
     public void set(int index, char value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }
         array.putShort(index * Short.BYTES, (short)value);
+    }
+
+    @Override
+    public void append(char value) {
+        ensureCapacity(size);
+        array.putShort(size * Short.BYTES, (short)value);
+        size++;
     }
 
     @Override

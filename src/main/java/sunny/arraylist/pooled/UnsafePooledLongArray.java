@@ -20,9 +20,16 @@ public class UnsafePooledLongArray extends UnsafePooledArray implements LongArra
     }
 
     @Override
+    public void append(long value) {
+        ensureCapacity(size);
+        array.putLong(size * Long.BYTES, value);
+        size++;
+    }
+
+    @Override
     public void set(int index, long value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

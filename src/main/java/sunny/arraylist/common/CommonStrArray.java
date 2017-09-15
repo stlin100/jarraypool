@@ -47,8 +47,19 @@ public class CommonStrArray implements StrArray {
     }
 
     @Override
+    public void append(String value) {
+        set(size, value);
+    }
+
+    @Override
+    public void append(Str value) {
+        set(size, value);
+    }
+
+    @Override
     public void set(int index, String value) {
-        if(size<index+1)
+        ensureCapacity(index);
+        if(index>=size)
         {
             size = index + 1;
         }
@@ -56,7 +67,10 @@ public class CommonStrArray implements StrArray {
         if(value==null)
         {
             if(charArrays[index]!=null)
+            {
                 charArrays[index].free();
+                charArrays[index] = null;
+            }
             return;
         }
 
@@ -75,7 +89,7 @@ public class CommonStrArray implements StrArray {
     @Override
     public void set(int index, Str value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

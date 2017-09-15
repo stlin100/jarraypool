@@ -25,9 +25,16 @@ public class UnpooledShortArray implements ShortArray {
     }
 
     @Override
+    public void append(short value) {
+        ensureCapacity(size);
+        elements[size] = value;
+        size++;
+    }
+
+    @Override
     public final void set(int index, short value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

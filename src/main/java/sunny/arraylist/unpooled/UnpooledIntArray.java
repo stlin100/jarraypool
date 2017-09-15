@@ -26,9 +26,16 @@ public class UnpooledIntArray implements IntArray {
     }
 
     @Override
+    public void append(int value) {
+        ensureCapacity(size);
+        elements[size] = value;
+        size++;
+    }
+
+    @Override
     public final void set(int index, int value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

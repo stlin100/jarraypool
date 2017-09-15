@@ -27,12 +27,19 @@ public class UnpooledBooleanArray implements BooleanArray {
     @Override
     public final void set(int index, boolean value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }
         elements[index] = value;
 
+    }
+
+    @Override
+    public void append(boolean value) {
+        ensureCapacity(size);
+        elements[size] = value;
+        size++;
     }
 
     protected void ensureCapacity(int index) {

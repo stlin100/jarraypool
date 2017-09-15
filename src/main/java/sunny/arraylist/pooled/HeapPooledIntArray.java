@@ -20,9 +20,16 @@ public class HeapPooledIntArray extends PooledArray<int[]> implements IntArray{
     }
 
     @Override
+    public void append(int value) {
+        ensureCapacity(size);
+        array[size] = value;
+        size++;
+    }
+
+    @Override
     public void set(int index, int value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

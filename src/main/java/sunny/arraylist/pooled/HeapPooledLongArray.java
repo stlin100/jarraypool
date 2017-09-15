@@ -20,9 +20,15 @@ public class HeapPooledLongArray extends PooledArray<long[]> implements LongArra
     }
 
     @Override
+    public void append(long value) {
+        ensureCapacity(size);
+        array[size] = value;
+        size++;
+    }
+    @Override
     public void set(int index, long value) {
         ensureCapacity(index);
-        if(size<index+1)
+        if(index>=size)
         {
             size = index + 1;
         }

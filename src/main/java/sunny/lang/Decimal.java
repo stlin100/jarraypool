@@ -14,6 +14,8 @@ import java.math.BigDecimal;
  */
 public class Decimal implements Comparable<Decimal>{
 
+    private final static long NULL_SCALEVALUE = Long.MIN_VALUE;
+
     private LongArray array;
     private int offset;
 
@@ -41,7 +43,10 @@ public class Decimal implements Comparable<Decimal>{
 
     public void setValue(BigDecimal big)
     {
-        setValue(big.toString());
+        if(big==null)
+            setNull();
+        else
+            setValue(big.toString());
     }
 
 
@@ -88,7 +93,13 @@ public class Decimal implements Comparable<Decimal>{
     private void setLong(long longValue) {
         putMemory(longValue, (byte)0, 0);
     }
-    
+
+    private void setNull()
+    {
+        array.set(offset, 0);
+        array.set(offset + 1, NULL_SCALEVALUE);
+    }
+
     private static final long makeScaleLong(long scale, long scaleValue)
     {
         if(scale==0)
@@ -107,9 +118,6 @@ public class Decimal implements Comparable<Decimal>{
     }
 
 
-
-
-
     private long longValue() {
         return array.get(offset);
     }
@@ -121,6 +129,9 @@ public class Decimal implements Comparable<Decimal>{
 
     public BigDecimal toBigDecimal() {
         long scaleLong = scaleLong();
+        if(scaleLong==NULL_SCALEVALUE)
+            return null;
+
         int scale = getScale(scaleLong);
 
         if(scale==0)
@@ -142,10 +153,12 @@ public class Decimal implements Comparable<Decimal>{
     public String toString()
     {
         long scaleLong = scaleLong();
+        if(NULL_SCALEVALUE==scaleLong)
+            return "";
+
         int scale = getScale(scaleLong);
         if(scale<=0)
             return String.valueOf(longValue());
-
 
         long scaleValue = getScaleValue(scaleLong);
         String svalue = String.valueOf(scaleValue);
@@ -155,18 +168,24 @@ public class Decimal implements Comparable<Decimal>{
             sb.append('0');
         sb.append(svalue);
 
-
         return sb.toString();
     }
 
     public int compareTo(Decimal o)
     {
+        long scaleLong = scaleLong();
+        long scaleLong2 = o.scaleLong();
+
+        if(scaleLong==NULL_SCALEVALUE && scaleLong2==NULL_SCALEVALUE)
+            return 0;
+        else if(scaleLong==NULL_SCALEVALUE)
+            return -1;
+        else if(scaleLong2==NULL_SCALEVALUE)
+            return 1;
+
         int c = (int)(longValue() - o.longValue());
         if(c!=0)
             return c;
-
-        long scaleLong = scaleLong();
-        long scaleLong2 = o.scaleLong();
 
         int scale1 = getScale(scaleLong);
         int scale2 = getScale(scaleLong2);
