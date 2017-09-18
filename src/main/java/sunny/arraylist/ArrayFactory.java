@@ -332,7 +332,7 @@ public abstract class ArrayFactory {
 
         public ArrayFactory build()
         {
-            return unsafe?new UnsafeArrayFactory(this):new HeapArrayFactory(this);
+            return unsafe?new PooledUnsafeArrayFactory(this):new PooledHeapArrayFactory(this);
         }
     }
 }

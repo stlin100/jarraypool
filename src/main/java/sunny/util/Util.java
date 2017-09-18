@@ -5,13 +5,13 @@ package sunny.util;
  */
 public class Util {
 
-    public static int pow2Ceiling(int value)
+    public static int twoPowSizeFor(int value)
     {
         if(value==0)
             return 0;
         if(value==1)
             return 2;
-        return pow2Ceiling1(value);
+        return jdk8(value);
     }
 
     private static int pow2Ceiling1(int value) {
@@ -22,4 +22,16 @@ public class Util {
         else
             return 1 << (32 - leading0);
     }
+
+
+    private static final int jdk8(int cap) {
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return n + 1;
+    }
+
 }

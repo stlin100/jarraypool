@@ -100,6 +100,8 @@ public class Str implements Comparable<Str>{
 
     @Override
     public int compareTo(Str o) {
+        return array.compareTo(o.array);
+        /*
         int len1 = length;
         int len2 = o.length;
         int lim = Math.min(len1, len2);
@@ -115,6 +117,7 @@ public class Str implements Comparable<Str>{
             k++;
         }
         return len1 - len2;
+        */
     }
 
     public void free() {

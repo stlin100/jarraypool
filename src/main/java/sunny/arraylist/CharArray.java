@@ -18,4 +18,7 @@ public interface CharArray extends Array{
     {
         set(index, (char)value);
     }
+
+    int compareTo(CharArray another);
+    char[] nativeChars();
 }

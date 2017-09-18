@@ -13,8 +13,11 @@ public class UtilTest {
         int v = 0;
         for(int i=1;i<=8;i++)
         {
-            v = Util.pow2Ceiling(i);
+            v = Util.twoPowSizeFor(i);
+
+            System.out.println(" i:" + i + ", v:" + v);
         }
+
     }
 
     @Test

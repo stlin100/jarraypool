@@ -78,7 +78,7 @@ public class CommonStrArray implements StrArray {
         lengthArray.set(index, len);
 
         if(len>0) {
-            int cap = Util.pow2Ceiling(len);
+            int cap = Util.twoPowSizeFor(len);
             charArrays[index] = arrayFactory.createCharArray(cap);
 
             for (int i = 0; i < len; i++)
@@ -105,7 +105,7 @@ public class CommonStrArray implements StrArray {
         lengthArray.set(index, len);
 
         if(len>0) {
-            int cap = Util.pow2Ceiling(len);
+            int cap = Util.twoPowSizeFor(len);
             charArrays[index] = arrayFactory.createCharArray(cap);
 
             for (int i = 0; i < len; i++)
