@@ -8,14 +8,13 @@ import sunny.unsafe.UnsafeMemory;
  */
 public class UnpooledUnsafeIntArray extends UnpooledUnsafeArray implements IntArray {
     protected int capacity;
-    protected UnsafeMemory memory = null;
 
     private int size;
 
     public UnpooledUnsafeIntArray(int initialCapacity)
     {
+        super(Integer.BYTES * initialCapacity);
         capacity = initialCapacity;
-        memory = new UnsafeMemory(Integer.BYTES * initialCapacity);
     }
 
     @Override
@@ -50,9 +49,4 @@ public class UnpooledUnsafeIntArray extends UnpooledUnsafeArray implements IntAr
         return memory.getInt(Integer.BYTES * index);
     }
 
-    @Override
-    public final void free() {
-        memory.free();
-        memory = null;
-    }
 }

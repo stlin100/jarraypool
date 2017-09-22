@@ -1,7 +1,6 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.CharArray;
-import sunny.arraylist.IntArray;
 import sunny.unsafe.UnsafeMemory;
 import sunny.util.CharArrayCompares;
 
@@ -10,14 +9,13 @@ import sunny.util.CharArrayCompares;
  */
 public class UnpooledUnsafeCharArray extends UnpooledUnsafeArray implements CharArray {
     protected int capacity;
-    protected UnsafeMemory memory = null;
 
     private int size;
 
     public UnpooledUnsafeCharArray(int initialCapacity)
     {
+        super(Character.BYTES * initialCapacity);
         capacity = initialCapacity;
-        memory = new UnsafeMemory(Character.BYTES * initialCapacity);
     }
 
     @Override
@@ -60,9 +58,5 @@ public class UnpooledUnsafeCharArray extends UnpooledUnsafeArray implements Char
     public char[] nativeChars() {
         return null;
     }
-    @Override
-    public final void free() {
-        memory.free();
-        memory = null;
-    }
+
 }

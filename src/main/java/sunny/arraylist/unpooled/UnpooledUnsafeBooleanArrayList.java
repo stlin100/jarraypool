@@ -1,6 +1,5 @@
 package sunny.arraylist.unpooled;
 
-import sunny.arraylist.ArrayList;
 import sunny.arraylist.BooleanArrayList;
 
 /**
@@ -21,7 +20,7 @@ public class UnpooledUnsafeBooleanArrayList extends UnpooledUnsafeBooleanArray i
             {
                 capacity = capacity<<1;
             }while(index>=capacity);
-            memory.reallocate(Byte.BYTES * capacity);
+            reallocate(Byte.BYTES * capacity);
         }
     }
 }

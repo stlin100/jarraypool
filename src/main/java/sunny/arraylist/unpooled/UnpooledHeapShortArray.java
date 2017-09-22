@@ -1,6 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.ShortArray;
+import sunny.arraylist.metric.MetricSystem;
 
 /**
  * Created by lzx on 17/9/14.
@@ -16,6 +17,7 @@ public class UnpooledHeapShortArray extends UnpooledHeapArray implements ShortAr
     {
         capacity = initialCapacity;
         elements = new short[initialCapacity];
+        MetricSystem.unpooledAllocHeapSize.inc(capacity * Short.BYTES);
     }
 
     @Override
@@ -53,5 +55,6 @@ public class UnpooledHeapShortArray extends UnpooledHeapArray implements ShortAr
     @Override
     public final void free() {
         elements = null;
+        MetricSystem.unpooledAllocHeapSize.dec(capacity * Short.BYTES);
     }
 }

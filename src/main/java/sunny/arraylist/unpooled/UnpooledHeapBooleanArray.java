@@ -1,21 +1,26 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.BooleanArray;
+import sunny.arraylist.metric.MetricSystem;
+
+import java.util.BitSet;
 
 /**
+ * don't need metric, GC free.
  * Created by lzx on 17/9/14.
  */
 public class UnpooledHeapBooleanArray extends UnpooledHeapArray implements BooleanArray {
 
     protected int capacity;
-    protected boolean[] elements = null;
-
+    //protected boolean[] elements = null;
+    protected BitSet elements = new BitSet();
     private int size;
 
     public UnpooledHeapBooleanArray(int initialCapacity)
     {
         capacity = initialCapacity;
-        elements = new boolean[initialCapacity];
+        //elements = new boolean[initialCapacity];
+        //MetricSystem.unpooledAllocHeapSize.inc(capacity * Byte.BYTES);
     }
 
     @Override
@@ -30,15 +35,15 @@ public class UnpooledHeapBooleanArray extends UnpooledHeapArray implements Boole
         {
             size = index + 1;
         }
-        elements[index] = value;
-
+        //elements[index] = value;
+        elements.set(index, value);
     }
 
     @Override
     public void append(boolean value) {
         ensureCapacity(size);
-        elements[size] = value;
-        size++;
+        //elements[size] = value;
+        elements.set(size++, value);
     }
 
     protected void ensureCapacity(int index) {
@@ -47,11 +52,12 @@ public class UnpooledHeapBooleanArray extends UnpooledHeapArray implements Boole
 
     @Override
     public final boolean get(int index) {
-        return elements[index];
+        return elements.get(index);
     }
 
     @Override
     public final void free() {
         elements = null;
+        //MetricSystem.unpooledAllocHeapSize.dec(capacity * Byte.BYTES);
     }
 }

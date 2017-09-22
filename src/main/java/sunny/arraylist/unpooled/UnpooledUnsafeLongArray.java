@@ -1,6 +1,5 @@
 package sunny.arraylist.unpooled;
 
-import sunny.arraylist.IntArray;
 import sunny.arraylist.LongArray;
 import sunny.unsafe.UnsafeMemory;
 
@@ -9,14 +8,13 @@ import sunny.unsafe.UnsafeMemory;
  */
 public class UnpooledUnsafeLongArray extends UnpooledUnsafeArray implements LongArray {
     protected int capacity;
-    protected UnsafeMemory memory = null;
 
     private int size;
 
     public UnpooledUnsafeLongArray(int initialCapacity)
     {
+        super(Long.BYTES * initialCapacity);
         capacity = initialCapacity;
-        memory = new UnsafeMemory(Long.BYTES * initialCapacity);
     }
 
     @Override
@@ -45,9 +43,5 @@ public class UnpooledUnsafeLongArray extends UnpooledUnsafeArray implements Long
     public long get(int index) {
         return memory.getLong(index * Long.BYTES);
     }
-    @Override
-    public final void free() {
-        memory.free();
-        memory = null;
-    }
+
 }

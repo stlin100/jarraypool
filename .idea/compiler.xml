@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jarraypool" />
         <module name="junsafe" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jarraypool" target="1.8" />
       <module name="junsafe" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,7 +1,7 @@
 package sunny.arraylist.pooled;
 
-import sunny.arraypool.unsafe.UnsafeArrayPool;
 import sunny.arraylist.CharArray;
+import sunny.arraypool.unsafe.UnsafeArrayPool;
 import sunny.util.CharArrayCompares;
 
 /**

@@ -1,6 +1,5 @@
 package sunny.arraylist.unpooled;
 
-import sunny.arraylist.IntArray;
 import sunny.arraylist.ShortArray;
 import sunny.unsafe.UnsafeMemory;
 
@@ -15,6 +14,7 @@ public class UnpooledUnsafeShortArray extends UnpooledUnsafeArray implements Sho
 
     public UnpooledUnsafeShortArray(int initialCapacity)
     {
+        super(Short.BYTES * initialCapacity);
         capacity = initialCapacity;
         memory = new UnsafeMemory(Short.BYTES * initialCapacity);
     }
@@ -45,9 +45,5 @@ public class UnpooledUnsafeShortArray extends UnpooledUnsafeArray implements Sho
     public short get(int index) {
         return memory.getShort(index * Short.BYTES);
     }
-    @Override
-    public final void free() {
-        memory.free();
-        memory = null;
-    }
+
 }

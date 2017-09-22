@@ -21,4 +21,5 @@ public interface CharArray extends Array{
 
     int compareTo(CharArray another);
     char[] nativeChars();
+
 }

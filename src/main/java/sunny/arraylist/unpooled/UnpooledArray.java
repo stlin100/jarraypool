@@ -1,7 +1,6 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.Array;
-import sunny.arraypool.ArrayPool;
 
 /**
  * Created by lzx on 17/9/8.

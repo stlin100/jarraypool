@@ -46,7 +46,7 @@ public class Decimal implements Comparable<Decimal>{
         if(big==null)
             setNull();
         else
-            setValue(big.toString());
+            setValue(big.toPlainString());
     }
 
 

@@ -1,22 +1,22 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.BooleanArray;
-import sunny.arraylist.IntArray;
 import sunny.unsafe.UnsafeMemory;
 
 /**
  * Created by lzx on 17/9/18.
  */
 public class UnpooledUnsafeBooleanArray extends UnpooledUnsafeArray implements BooleanArray {
-    protected int capacity;
-    protected UnsafeMemory memory = null;
 
+
+    protected int capacity;
     private int size;
 
     public UnpooledUnsafeBooleanArray(int initialCapacity)
     {
+        super(Byte.BYTES * initialCapacity);
         capacity = initialCapacity;
-        memory = new UnsafeMemory(Byte.BYTES * initialCapacity);
+
     }
 
     @Override
@@ -46,12 +46,4 @@ public class UnpooledUnsafeBooleanArray extends UnpooledUnsafeArray implements B
         return memory.getByte(index * Byte.BYTES)==1;
     }
 
-
-
-
-    @Override
-    public final void free() {
-        memory.free();
-        memory = null;
-    }
 }

@@ -1,6 +1,8 @@
 package sunny.arraylist.common;
 
-import sunny.arraylist.*;
+import sunny.arraylist.ArrayFactory;
+import sunny.arraylist.DecimalArray;
+import sunny.arraylist.LongArray;
 import sunny.lang.Decimal;
 
 import java.math.BigDecimal;
@@ -35,6 +37,7 @@ public class CommonDecimalArray implements DecimalArray {
     @Override
     public void free() {
         array.free();
+        array = null;
     }
 
     @Override

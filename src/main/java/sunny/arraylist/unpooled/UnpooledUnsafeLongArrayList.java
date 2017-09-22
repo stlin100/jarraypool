@@ -1,6 +1,5 @@
 package sunny.arraylist.unpooled;
 
-import sunny.arraylist.ArrayList;
 import sunny.arraylist.LongArrayList;
 
 /**
@@ -21,7 +20,7 @@ public class UnpooledUnsafeLongArrayList extends UnpooledUnsafeLongArray impleme
             {
                 capacity = capacity<<1;
             }while(index>=capacity);
-            memory.reallocate(Long.BYTES * capacity);
+            reallocate(Long.BYTES * capacity);
         }
     }
 }

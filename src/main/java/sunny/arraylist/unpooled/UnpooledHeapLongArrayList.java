@@ -1,6 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.LongArrayList;
+import sunny.arraylist.metric.MetricSystem;
 
 import java.util.Arrays;
 
@@ -16,11 +17,15 @@ public class UnpooledHeapLongArrayList extends UnpooledHeapLongArray implements 
     public final void ensureCapacity(int index) {
         if(index>=capacity)
         {
+            int oldCapacity = capacity;
             do
             {
                 capacity = capacity<<1;
             }while(index>=capacity);
             elements = Arrays.copyOf(elements, capacity);
+
+
+            MetricSystem.unpooledAllocHeapSize.inc((capacity - oldCapacity) * Long.BYTES);
 
         }
     }

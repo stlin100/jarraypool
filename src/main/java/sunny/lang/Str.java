@@ -4,6 +4,8 @@ package sunny.lang;
 import sunny.arraylist.CharArray;
 import sunny.arraylist.ShortArray;
 
+import java.util.Arrays;
+
 /**
  * Created by lzx on 17/8/31.
  */
@@ -75,22 +77,28 @@ public class Str implements Comparable<Str>{
         if(length==0)
             return EMPTYSTRING;
 
-        char[] chars = new char[length];
-        for(int i=0;i<length;i++)
-        {
-            chars[i] = (char)array.get(i);
+        char[] chars = array.nativeChars();
+        if(chars==null) {
+            chars = new char[length];
+            for (int i = 0; i < length; i++) {
+                chars[i] = (char) array.get(i);
+            }
         }
-        return new String(chars);
+        return new String(chars, 0, length);
     }
 
     public char[] toCharArray()
     {
-        char[] chars = new char[length];
-        for(int i=0;i<length;i++)
-        {
-            chars[i] = (char)array.get(i);
+        char[] chars = array.nativeChars();
+        if(chars!=null)
+            return Arrays.copyOf(chars, length);
+
+        chars = new char[length];
+        for (int i = 0; i < length; i++) {
+            chars[i] = (char) array.get(i);
         }
         return chars;
+
     }
 
     public int length()

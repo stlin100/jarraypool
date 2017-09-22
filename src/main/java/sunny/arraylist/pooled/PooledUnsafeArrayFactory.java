@@ -1,7 +1,7 @@
 package sunny.arraylist.pooled;
 
-import sunny.arraypool.ArrayPoolFactory;
 import sunny.arraylist.*;
+import sunny.arraypool.ArrayPoolFactory;
 import sunny.arraypool.unsafe.*;
 
 /**
