@@ -1,7 +1,7 @@
 package sunny.arraylist.factory;
 
 import sunny.arraylist.*;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 import sunny.arraylist.unpooled.UnpooledHeapArrayFactory;
 import sunny.arraylist.unpooled.UnpooledUnsafeArrayFactory;
 
@@ -31,7 +31,7 @@ public class UnpooledL2ArrayFactory extends ArrayFactory implements UnpooledL2Ar
     {
         return
                 (
-                (MetricSystem.unpooledAllocHeapSize.getCount()>totalHeapLimit)
+                (Metrics.unpooledAllocHeapSize.getCount()>totalHeapLimit)
                         ||
                         (heapAllocateCapacityLimit>0 && capacity > heapAllocateCapacityLimit)
                 );

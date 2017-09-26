@@ -1,7 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.CharArrayList;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 
 import java.util.Arrays;
 
@@ -24,7 +24,7 @@ public class UnpooledHeapCharArrayList extends UnpooledHeapCharArray implements 
             }while(index>=capacity);
             elements = Arrays.copyOf(elements, capacity);
 
-            MetricSystem.unpooledAllocHeapSize.inc((capacity - oldCapacity) * Character.BYTES);
+            Metrics.unpooledAllocHeapSize.inc((capacity - oldCapacity) * Character.BYTES);
         }
     }
 

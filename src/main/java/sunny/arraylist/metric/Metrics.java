@@ -6,12 +6,13 @@ import com.codahale.metrics.MetricRegistry;
 /**
  * Created by lzx on 17/9/22.
  */
-public class MetricSystem {
+public class Metrics {
 
-    private static MetricRegistry registry = new MetricRegistry();
+    public final static MetricRegistry registry = new MetricRegistry();
 
     //unpooled
     public static Counter unpooledAllocHeapSize = registry.counter("jarraypool.unpooledAllocHeapSize");
     public static Counter unpooledAllocUnsafeSize = registry.counter("jarraypool.unpooledAllocUnsafeSize");
+
 
 }

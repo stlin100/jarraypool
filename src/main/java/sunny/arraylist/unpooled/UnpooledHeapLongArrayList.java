@@ -1,7 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.LongArrayList;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 
 import java.util.Arrays;
 
@@ -25,7 +25,7 @@ public class UnpooledHeapLongArrayList extends UnpooledHeapLongArray implements 
             elements = Arrays.copyOf(elements, capacity);
 
 
-            MetricSystem.unpooledAllocHeapSize.inc((capacity - oldCapacity) * Long.BYTES);
+            Metrics.unpooledAllocHeapSize.inc((capacity - oldCapacity) * Long.BYTES);
 
         }
     }

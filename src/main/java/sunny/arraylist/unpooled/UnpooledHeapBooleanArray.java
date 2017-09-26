@@ -1,7 +1,6 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.BooleanArray;
-import sunny.arraylist.metric.MetricSystem;
 
 import java.util.BitSet;
 
@@ -20,7 +19,7 @@ public class UnpooledHeapBooleanArray extends UnpooledHeapArray implements Boole
     {
         capacity = initialCapacity;
         //elements = new boolean[initialCapacity];
-        //MetricSystem.unpooledAllocHeapSize.inc(capacity * Byte.BYTES);
+        //Metrics.unpooledAllocHeapSize.inc(capacity * Byte.BYTES);
     }
 
     @Override
@@ -58,6 +57,6 @@ public class UnpooledHeapBooleanArray extends UnpooledHeapArray implements Boole
     @Override
     public final void free() {
         elements = null;
-        //MetricSystem.unpooledAllocHeapSize.dec(capacity * Byte.BYTES);
+        //Metrics.unpooledAllocHeapSize.dec(capacity * Byte.BYTES);
     }
 }

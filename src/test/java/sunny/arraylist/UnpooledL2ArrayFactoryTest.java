@@ -3,7 +3,7 @@ package sunny.arraylist;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import sunny.arraylist.factory.UnpooledL2ArrayFactory;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 
 /**
  * Created by lzx on 17/9/22.
@@ -34,8 +34,8 @@ public class UnpooledL2ArrayFactoryTest {
             }
         }
 
-        long heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        long unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        long heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        long unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);
@@ -43,8 +43,8 @@ public class UnpooledL2ArrayFactoryTest {
         for(Array a: all)
             a.free();
 
-        heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);

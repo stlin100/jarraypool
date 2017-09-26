@@ -1,7 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.LongArray;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 
 /**
  * Created by lzx on 17/9/14.
@@ -17,7 +17,7 @@ public class UnpooledHeapLongArray extends UnpooledHeapArray implements LongArra
     {
         capacity = initialCapacity;
         elements = new long[initialCapacity];
-        MetricSystem.unpooledAllocHeapSize.inc(capacity * Long.BYTES);
+        Metrics.unpooledAllocHeapSize.inc(capacity * Long.BYTES);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class UnpooledHeapLongArray extends UnpooledHeapArray implements LongArra
     @Override
     public final void free() {
         elements = null;
-        MetricSystem.unpooledAllocHeapSize.dec(capacity * Long.BYTES);
+        Metrics.unpooledAllocHeapSize.dec(capacity * Long.BYTES);
     }
 }

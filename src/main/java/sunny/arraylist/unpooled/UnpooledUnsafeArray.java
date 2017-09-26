@@ -1,6 +1,6 @@
 package sunny.arraylist.unpooled;
 
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 import sunny.unsafe.UnsafeMemory;
 
 /**
@@ -17,14 +17,14 @@ public abstract class UnpooledUnsafeArray extends UnpooledArray{
 
     protected void allocate(int bytes) {
         memory = new UnsafeMemory(bytes);
-        MetricSystem.unpooledAllocUnsafeSize.inc(bytes);
+        Metrics.unpooledAllocUnsafeSize.inc(bytes);
     }
 
     protected void reallocate(int bytes)
     {
         memory.reallocate(bytes);
         int old = memory.length();
-        MetricSystem.unpooledAllocUnsafeSize.inc(bytes-old);
+        Metrics.unpooledAllocUnsafeSize.inc(bytes-old);
     }
 
     @Override
@@ -32,6 +32,6 @@ public abstract class UnpooledUnsafeArray extends UnpooledArray{
         int bytes = memory.length();
         memory.free();
         memory = null;
-        MetricSystem.unpooledAllocUnsafeSize.dec(bytes);
+        Metrics.unpooledAllocUnsafeSize.dec(bytes);
     }
 }

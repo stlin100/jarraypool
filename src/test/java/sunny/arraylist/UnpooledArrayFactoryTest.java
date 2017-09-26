@@ -2,10 +2,8 @@ package sunny.arraylist;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import sunny.arraylist.factory.UnpooledL2ArrayFactory;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 import sunny.arraylist.unpooled.UnpooledHeapArrayFactory;
-import sunny.arraylist.unpooled.UnpooledUnsafeArray;
 import sunny.arraylist.unpooled.UnpooledUnsafeArrayFactory;
 
 /**
@@ -76,8 +74,8 @@ public class UnpooledArrayFactoryTest {
             }
         }
 
-        long heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        long unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        long heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        long unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);
@@ -85,8 +83,8 @@ public class UnpooledArrayFactoryTest {
         for(Array a: all)
             a.free();
 
-        heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);
@@ -108,8 +106,8 @@ public class UnpooledArrayFactoryTest {
             }
         }
 
-        long heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        long unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        long heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        long unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);
@@ -117,8 +115,8 @@ public class UnpooledArrayFactoryTest {
         for(Array a: all)
             a.free();
 
-        heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);
@@ -140,8 +138,8 @@ public class UnpooledArrayFactoryTest {
             }
         }
 
-        long heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        long unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        long heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        long unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);
@@ -149,8 +147,8 @@ public class UnpooledArrayFactoryTest {
         for(Array a: all)
             a.free();
 
-        heapSize = MetricSystem.unpooledAllocHeapSize.getCount();
-        unsafeSize = MetricSystem.unpooledAllocUnsafeSize.getCount();
+        heapSize = Metrics.unpooledAllocHeapSize.getCount();
+        unsafeSize = Metrics.unpooledAllocUnsafeSize.getCount();
 
         System.out.println("heapSize:" + heapSize);
         System.out.println("unsafeSize:" + unsafeSize);

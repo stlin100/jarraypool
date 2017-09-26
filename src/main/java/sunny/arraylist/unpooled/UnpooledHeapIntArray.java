@@ -1,7 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.IntArray;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 
 /**
  * Created by lzx on 17/9/14.
@@ -17,7 +17,7 @@ public class UnpooledHeapIntArray extends UnpooledHeapArray implements IntArray 
     {
         capacity = initialCapacity;
         elements = new int[initialCapacity];
-        MetricSystem.unpooledAllocHeapSize.inc(capacity * Integer.BYTES);
+        Metrics.unpooledAllocHeapSize.inc(capacity * Integer.BYTES);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class UnpooledHeapIntArray extends UnpooledHeapArray implements IntArray 
     @Override
     public final void free() {
         elements = null;
-        MetricSystem.unpooledAllocHeapSize.dec(capacity * Integer.BYTES);
+        Metrics.unpooledAllocHeapSize.dec(capacity * Integer.BYTES);
     }
 }

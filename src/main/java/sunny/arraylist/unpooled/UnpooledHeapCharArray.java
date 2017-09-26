@@ -1,7 +1,7 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.CharArray;
-import sunny.arraylist.metric.MetricSystem;
+import sunny.arraylist.metric.Metrics;
 import sunny.util.CharArrayCompares;
 
 /**
@@ -18,7 +18,7 @@ public class UnpooledHeapCharArray extends UnpooledHeapArray implements CharArra
     {
         capacity = initialCapacity;
         elements = new char[initialCapacity];
-        MetricSystem.unpooledAllocHeapSize.inc(capacity * Character.BYTES);
+        Metrics.unpooledAllocHeapSize.inc(capacity * Character.BYTES);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class UnpooledHeapCharArray extends UnpooledHeapArray implements CharArra
     @Override
     public final void free() {
         elements = null;
-        MetricSystem.unpooledAllocHeapSize.dec(capacity * Character.BYTES);
+        Metrics.unpooledAllocHeapSize.dec(capacity * Character.BYTES);
     }
 
 
