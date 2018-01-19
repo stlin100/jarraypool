@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class Decimal implements Comparable<Decimal>{
 
     private final static long NULL_SCALEVALUE = Long.MIN_VALUE;
-
+    private final static long NEGZEROVALUE = Long.MIN_VALUE;
     private LongArray array;
     private int offset;
 
@@ -56,7 +56,12 @@ public class Decimal implements Comparable<Decimal>{
 
         long longValue = 0;
         if(parts[0].length()>0)
-            longValue = Long.parseLong(parts[0]);
+        {
+            if(parts[0].equals("-0"))
+                longValue = Long.MIN_VALUE;
+            else
+                longValue = Long.parseLong(parts[0]);
+        }
 
         if(parts.length>1 && parts[1].length()>0)
         {
@@ -142,7 +147,12 @@ public class Decimal implements Comparable<Decimal>{
 
         String svalue = String.valueOf(scaleValue);
         StringBuilder sb = new StringBuilder();
-        sb.append(longValue()).append('.');
+        long longValue = longValue();
+        if(longValue==Long.MIN_VALUE)
+            sb.append("-0");
+        else
+            sb.append(longValue);
+        sb.append('.');
         for(int i=0;i<(scale-svalue.length());i++)
             sb.append('0');
         sb.append(svalue);
@@ -163,7 +173,12 @@ public class Decimal implements Comparable<Decimal>{
         long scaleValue = getScaleValue(scaleLong);
         String svalue = String.valueOf(scaleValue);
         StringBuilder sb = new StringBuilder();
-        sb.append(longValue()).append('.');
+        long longValue = longValue();
+        if(longValue==Long.MIN_VALUE)
+            sb.append("-0");
+        else
+            sb.append(longValue);
+        sb.append('.');
         for(int i=0;i<(scale-svalue.length());i++)
             sb.append('0');
         sb.append(svalue);
@@ -178,20 +193,32 @@ public class Decimal implements Comparable<Decimal>{
 
         if(scaleLong==NULL_SCALEVALUE && scaleLong2==NULL_SCALEVALUE)
             return 0;
-        else if(scaleLong==NULL_SCALEVALUE)
-            return -1;
-        else if(scaleLong2==NULL_SCALEVALUE)
-            return 1;
 
-        int c = (int)(longValue() - o.longValue());
+        long longValue2 = o.longValue();
+
+        if(scaleLong==NULL_SCALEVALUE)
+        {
+            return longValue2==Long.MIN_VALUE?1:-1;
+        }
+        long longValue = longValue();
+        if(scaleLong2==NULL_SCALEVALUE)
+        {
+            return longValue==Long.MIN_VALUE?-1:1;
+        }
+
+
+        long c = (longValue==Long.MIN_VALUE?0:longValue) - (longValue2==Long.MIN_VALUE?0:longValue2);
         if(c!=0)
-            return c;
+            return c>0?1:-1;
 
         int scale1 = getScale(scaleLong);
         int scale2 = getScale(scaleLong2);
 
         if(scale1==scale2)
-            return (int)(getScaleValue(scaleLong) - getScaleValue(scaleLong2));
+        {
+            c = (getScaleValue(scaleLong) - getScaleValue(scaleLong2));
+            return c>0?1:-1;
+        }
 
         long v1 = getScaleValue(scaleLong);
         long v2 =getScaleValue(scaleLong2);
