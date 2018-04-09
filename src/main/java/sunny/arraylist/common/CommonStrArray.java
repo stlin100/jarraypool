@@ -44,10 +44,8 @@ public class CommonStrArray implements StrArray {
     public void free() {
         lengthArray.free();
         for(int i=0;i<size;i++)
-        {
-        	if(charArrays[i]!=null)
-        		charArrays[i].free();
-        }
+            if(charArrays[i] !=null)
+                charArrays[i].free();
     }
 
     @Override
