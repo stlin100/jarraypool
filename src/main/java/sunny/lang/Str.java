@@ -1,10 +1,9 @@
 package sunny.lang;
 
 
-import sunny.arraylist.CharArray;
-import sunny.arraylist.ShortArray;
-
 import java.util.Arrays;
+
+import sunny.arraylist.CharArray;
 
 /**
  * Created by lzx on 17/8/31.

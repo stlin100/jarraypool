@@ -22,8 +22,8 @@ public abstract class UnpooledUnsafeArray extends UnpooledArray{
 
     protected void reallocate(int bytes)
     {
+    	int old = memory.length();
         memory.reallocate(bytes);
-        int old = memory.length();
         Metrics.unpooledAllocUnsafeSize.inc(bytes-old);
     }
 

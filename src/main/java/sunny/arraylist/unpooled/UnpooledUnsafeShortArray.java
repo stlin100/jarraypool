@@ -16,7 +16,6 @@ public class UnpooledUnsafeShortArray extends UnpooledUnsafeArray implements Sho
     {
         super(Short.BYTES * initialCapacity);
         capacity = initialCapacity;
-        memory = new UnsafeMemory(Short.BYTES * initialCapacity);
     }
 
     @Override

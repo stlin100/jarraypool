@@ -1,7 +1,6 @@
 package sunny.arraylist.unpooled;
 
 import sunny.arraylist.BooleanArray;
-import sunny.unsafe.UnsafeMemory;
 
 /**
  * Created by lzx on 17/9/18.
